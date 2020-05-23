@@ -1,0 +1,297 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+\NeedsTeXFormat{LaTeX2e}
+\setbeamertemplate{navigation symbols}{}
+
+%------------------- Background ------------------
+
+
+\setbeamercolor{background canvas}{bg=ctitle}
+
+
+%-------------------------------------------------
+
+%------------------- Usefull commands/environments ------------------
+
+
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{0.4cm}}{\enditemize}
+
+
+%-------------------------------------------------
+
+
+
+
+
+%------------------- Title Page ------------------
+\newcommand*\twitter[2]{%
+  \href{#1}{#2\,\faTwitter}%
+}
+
+
+\newcommand*\git[2]{%
+  \href{#1}{#2\,\faGithub}%
+}
+
+\makeatletter
+\let\insertsupervisor\relax
+\mode<all>
+{
+  \newcommand\supervisor[1]{\def\insertsupervisor{#1}}
+  \titlegraphic{}
+}
+
+\let\insertsymbols\relax
+\mode<all>
+{
+  \newcommand\symbols[1]{\def\insertsymbols{#1}}
+  \titlegraphic{}
+}
+
+
+\setbeamertemplate{title page}{
+  \begin{minipage}[b][\paperheight]{\textwidth}
+    \vfill%
+    \vbox{}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.3\paperheight,sep=8pt,center]{title}
+    \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
+    \usebeamertemplate*{title separator}
+    \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
+    \end{beamercolorbox}
+    \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
+    \ifx\insertsupervisor\@empty\else\usebeamertemplate*{supervisor}\fi
+    \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
+    \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+    \ifx\insertsymbols\@empty\else\usebeamertemplate*{symbols}\fi
+    \vfill
+    \vspace*{1mm}
+  \end{minipage}
+}
+
+
+\def\maketitle{%
+  \ifbeamer@inframe
+    \titlepage
+  \else
+    \frame[plain,noframenumbering]{\titlepage}
+  \fi
+}
+\def\titlepage{%
+  \usebeamertemplate{title page}
+}
+
+\setbeamertemplate{title}{
+  \centering
+  \linespread{1.0}
+  \inserttitle
+  \par
+}
+
+
+
+\setbeamertemplate{title separator}{
+  \begin{tikzpicture}
+    \draw (-2,0) -- (2,0);
+  \end{tikzpicture}%
+  \par%
+  \vspace*{0.5em}
+}
+
+\setbeamertemplate{subtitle}{
+  \centering
+  \insertsubtitle
+  \par
+  \vspace*{0.5em}
+}
+
+\setbeamertemplate{author}{
+  \vspace*{3em}
+  \centering
+  \insertauthor%
+  \par%
+}
+
+\setbeamertemplate{supervisor}{
+ \vspace*{0.25em}
+  \centering
+  \insertsupervisor%
+  \par
+}
+
+\setbeamertemplate{date}{
+  \vspace*{0.25em}
+  \centering
+  \insertdate%
+  \par
+}
+
+
+\setbeamertemplate{institute}{
+  \vspace*{0.25em}
+  \centering
+  \insertinstitute%
+  \par
+}
+
+\setbeamertemplate{symbols}{
+  \vspace*{0.25em}
+  \centering
+  \insertsymbols%
+  \par%
+}
+
+%-------------------------------------------------
+
+
+
+%------------------- Colors     ------------------
+
+\definecolor{ctitle}{RGB}{246, 244, 242} 
+\definecolor{ctext}{RGB}{66, 86, 100} 
+\definecolor{ccomplement}{RGB}{99,80,66}
+
+
+
+		%----- Highlighting ----
+		
+		\definecolor{chighl}{RGB}{100,66,86}
+		\newcommand{\hl}[1]{\textbf{\textcolor{chighl}{#1}}}
+		%-----------------------
+
+
+\setbeamercolor{frametitle}{fg=ctitle}
+\setbeamercolor{title}{fg=ctitle, bg=ctext}
+\setbeamercolor{subtitle}{fg=ctitle, bg=ctext}
+\setbeamercolor{author}{fg=ctext}
+\setbeamercolor{date}{fg=ctext}
+\setbeamercolor{institute}{fg=ctext}
+\setbeamercolor{supervisor}{fg=ctext}
+\setbeamercolor{symbols}{fg=ctext}
+\setbeamercolor{section title}{fg=ctext}
+\setbeamercolor{subsection title}{fg=ctext}
+\setbeamercolor{normal text}{fg=ctext}
+\setbeamercolor{frametitle}{fg=ctitle, bg=ctext}
+\setbeamercolor{page number in head/foot}{fg=ctext}
+\setbeamercolor{section in toc}{fg=ctext}
+\setbeamercolor{itemize item}{fg=ctext}
+\setbeamercolor{enumerate item}{fg=ctext}
+\setbeamercolor{caption name}{fg=chighl}
+%-------------------------------------------------
+
+
+%------------------- Font     ------------------
+
+\usepackage{plex-serif}
+\usepackage[basic,italic,symbolgreek]{mathastext}
+\usepackage[sfdefault, scale = .85]{plex-sans}
+
+\setbeamerfont{title}{size=\Huge,%
+                      series=\bfseries}
+\setbeamerfont{subtitle}{size=\large,
+						series=\mdseries}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{institute}{size=\small}
+\setbeamerfont{supervisor}{size=\small}
+\setbeamerfont{symbols}{size=\small}
+\setbeamerfont{section title}{size=\Huge}
+\setbeamerfont{subsection title}{size=\huge,
+						series=\mdseries}
+\setbeamerfont{frametitle}{size=\huge,
+						series=\bfseries}
+\setbeamerfont{page number in head/foot}{size=\footnotesize}
+\setbeamerfont{section in toc}{size=\large}
+\setbeamerfont{caption name}{series=\bfseries}
+
+%-------------------------------------------------
+
+
+%----------------Section Page ---------------------
+\setbeamertemplate{section page}
+{
+    \begingroup
+    \begin{beamercolorbox}[sep=12pt,center]{section title}
+        \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+    \endgroup
+}
+
+\AtBeginSection{
+    \ifbeamer@inframe
+      \sectionpage
+    \else
+      \frame[plain,c,noframenumbering]{\sectionpage}
+    \fi
+  }
+
+
+\setbeamertemplate{subsection page}
+{
+    \begingroup
+    \begin{beamercolorbox}[sep=12pt,center]{section title}
+        \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+    \vspace*{10pt}
+    \begin{beamercolorbox}[sep=8pt,center]{subsection title}
+        \usebeamerfont{subsection title}\insertsubsection\par
+    \end{beamercolorbox}
+    \endgroup
+}
+
+\AtBeginSubsection{
+    \ifbeamer@inframe
+      \sectionpage
+    \else
+      \frame[plain,c,noframenumbering]{\subsectionpage}
+    \fi
+  }
+
+
+%-------------------------------------------------
+
+%----------------Frames ---------------------
+
+\defbeamertemplate{frametitle}{plain}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[%
+      wd=\paperwidth,%
+      sep=0pt]
+  \insertframetitle%
+  \nolinebreak%
+  \end{beamercolorbox}%
+}
+\setbeamertemplate{frametitle continuation}{%
+  \usebeamerfont{frametitle}
+  \romannumeral \insertcontinuationcount
+}
+
+
+
+\setbeamertemplate{footline}{%
+\begin{beamercolorbox}[ht=2.5ex,dp=1.9ex,%
+      leftskip=.3cm,rightskip=.2cm plus1fil]{title in head/foot}%
+      {\hfill}\usebeamerfont{page number in head/foot}\usebeamercolor[fg]{page number in head/foot}\insertframenumber%
+    \end{beamercolorbox}%
+}
+
+
+\setbeamertemplate{itemize items}{\textbullet}
+\setbeamertemplate{caption label separator}{: }
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{footnote}{%
+  \parindent 0em\noindent%
+  \raggedright
+  \usebeamercolor{footnote}\hbox to 0.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+}
+
+
+\setbeamertemplate{itemize/enumerate body end}{\vspace{.6\baselineskip}}
+
+%-------------------------------------------------
+
+
+
+
+\mode<all>

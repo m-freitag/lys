@@ -1,0 +1,172 @@
+---
+title: Lys
+subtitle: A simple Beamer and Rmarkdown template
+author: Markus Freitag
+supervisor: (supervisor/co-author/etc.)
+date: \today
+institute: Institution or Company of High Esteem
+symbols: \twitter{https://twitter.com/MarkusGFreitag}{}\git{}{}
+output:
+ beamer_presentation:
+    template: lys.tex
+    theme: lys
+    latex_engine: pdflatex
+    slide_level: 3
+    toc: true
+    dev: cairo_pdf
+bibliography: bib.bib    
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+# install package management tool pacman
+# install.packages("pacman")
+
+pacman::p_load(
+  tidyverse,
+  ggExtra,
+  extrafont,
+  showtext,
+  dagitty,
+  ggdag
+)
+
+
+font_add_google(
+  name = "IBM Plex Sans",
+  family = "plex"
+)
+
+showtext_auto()
+
+
+
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE
+)
+
+```
+
+
+```{r set-ggplot-theme, include=FALSE}
+
+theme_set(theme_classic() +
+  theme(
+    text = element_text(family = "plex", size = 25, colour="#425664"),
+    panel.background = element_rect(fill = "#f6f4f2"), 
+    plot.background = element_rect(fill = "#f6f4f2", color = NA), 
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(), 
+    legend.background = element_rect(fill = "#f6f4f2"), 
+    legend.box.background = element_rect(fill = "#f6f4f2"), 
+    axis.text = element_text(colour="#425664"),
+    axis.line = element_line(colour="#425664"),
+    axis.title = element_text(colour="#425664"),
+    axis.ticks = element_line(colour="#425664"),
+  ))
+
+
+```
+
+
+# First Section 
+
+### An ode to IBM Plex
+
+IBM Plex is an open source typeface designed by Mike Abbink at IBM: https://www.ibm.com/plex/.
+
+\bigskip
+
+Especially its "sans" variant is gorgeously clear for presentations (and, imho, even better than Firefox's Fira font). Full math symbols will probably become available soon: https://github.com/IBM/plex/issues/250. 
+
+\bigskip
+
+Until then, the \LaTeX-package "mathastext" used in this template works fine, e.g.: 
+
+$$y_i \sim N(\mu,\sigma)$$
+
+
+### A first frame
+
+The first frame starts with some random items[^1]:
+
+- this is the first item
+- this is the second item
+- \hl{the third item is highlighted}
+
+[^1]: Here is the footnote.
+
+### A Table
+
+Tables should rarely be used in presentations:
+
+| Tables   |      Are      |  Bad  |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+
+Table: Your Caption
+
+### A figure
+
+
+![Including a graphic.](fig\red.jpg)
+
+### A dag
+
+```{r dag, echo=FALSE, fig.cap = "A dag.", fig.width=2, fig.height=2}
+
+dagitty("dag {
+  X -> {Z Y}
+  Y -> Z
+               }"
+) %>% 
+tidy_dagitty() %>% 
+ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
+      geom_dag_point(col = "#425664", size = 9) +
+      geom_dag_edges(edge_colour = "#425664") +
+      geom_dag_text(col = "#f6f4f2") +
+      theme_dag(base_size = 10, 
+                    base_family = "plex", 
+                    plot.background = element_rect(fill = "#f6f4f2", 
+                                                   color = NA)
+                    )
+```
+
+
+### Some citations
+
+Let's quote [@Holland_1986].
+
+# Code & Plots
+
+
+
+### Code chunks
+
+A code chunk:
+```{r chunk, echo=TRUE}
+
+g = ggplot(mtcars, aes(x=wt, y=mpg, color=cyl, size=cyl)) +
+      geom_point() +
+      theme(legend.position="none") 
+
+```
+
+
+### A plot
+
+```{r plot, echo=FALSE, fig.cap = "A scatter plot"}
+
+g
+ 
+
+```
+
+### References
+
+

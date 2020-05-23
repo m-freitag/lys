@@ -1,0 +1,142 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(handout)$handout,$endif$$if(beamer)$gnorenonframetext,$endif$$for(classoption)$$classoption$$sep$,$endfor$$if(make149)$,aspectratio=149$endif$]{$documentclass$}
+$if(theme)$
+\usetheme{$theme$}
+$endif$
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+\usepackage{caption}
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+$endif$
+$if(graphics)$
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight0.8\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$if(title)$
+\title{$title$}
+$endif$
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+\date{$date$}
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{fontawesome}
+\usepackage{amssymb,amsmath}
+
+$if(euro)$
+  \usepackage{eurosym}
+$endif$
+
+\setlength{\emergencystretch}{0em}  % prevent overfull lines
+\setlength{\parskip}{0pt}
+
+
+$if(institute)$
+\institute{$institute$}
+$endif$
+$if(supervisor)$
+\supervisor{$supervisor$}
+$endif$
+$if(symbols)$
+\symbols{$symbols$}
+$endif$
+
+
+%---IMPORTANT FOR CHUNKS
+
+$if(highlighting-macros)$
+  $highlighting-macros$
+  $endif$ 
+
+\let\oldShaded\Shaded
+\let\endoldShaded\endShaded
+\renewenvironment{Shaded}{\footnotesize\oldShaded}{\endoldShaded}
+
+\definecolor{shadecolor}{RGB}{ 	238, 234, 230}
+
+  
+%--------------------  
+\begin{document}
+$if(title)$
+\maketitle
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+\begin{frame}[plain,noframenumbering]{Table of contents}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+$endif$
+$body$
+
+
+$if(natbib)$
+$if(biblio-files)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\begin{frame}[allowframebreaks]{$biblio-title$}
+\bibliography{$biblio-files$}
+\end{frame}
+
+$endif$
+$endif$
+$if(biblatex)$
+\begin{frame}[allowframebreaks, plain, noframenumbering]{$biblio-title$}
+\bibliography[heading=none]
+\end{frame}
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
