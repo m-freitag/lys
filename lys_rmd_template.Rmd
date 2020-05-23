@@ -1,7 +1,11 @@
 ---
-title: "Lys"
-author: "Markus Freitag"
-date: "\today"
+title: Lys
+subtitle: A simple Beamer and Rmarkdown template
+author: Markus Freitag
+supervisor: (supervisor/co-author/etc.)
+date: \today
+institute: Institution or Company of High Esteem
+symbols: \twitter{https://twitter.com/MarkusGFreitag}{}\git{https://github.com/m-freitag/lys}{}
 output:
   beamer_presentation:
     dev: cairo_pdf
@@ -10,11 +14,6 @@ output:
     template: lys.tex
     theme: lys
     toc: yes
-  ioslides_presentation: default
-institute: Institution or Company of High Esteem
-subtitle: A simple Beamer and Rmarkdown template
-supervisor: (supervisor/co-author/etc.)
-symbols: \twitter{https://twitter.com/MarkusGFreitag}{}\git{}{}
 bibliography: bib.bib
 ---
 
@@ -27,8 +26,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 pacman::p_load(
   tidyverse,
-  ggExtra,
-  extrafont,
   showtext,
   dagitty,
   ggdag
