@@ -1,20 +1,21 @@
 ---
-title: Lys
-subtitle: A simple Beamer and Rmarkdown template
-author: Markus Freitag
-supervisor: (supervisor/co-author/etc.)
-date: \today
-institute: Institution or Company of High Esteem
-symbols: \twitter{https://twitter.com/MarkusGFreitag}{}\git{}{}
+title: "Lys"
+author: "Markus Freitag"
+date: "\today"
 output:
- beamer_presentation:
-    template: lys.tex
-    theme: lys
+  beamer_presentation:
+    dev: cairo_pdf
     latex_engine: pdflatex
     slide_level: 3
-    toc: true
-    dev: cairo_pdf
-bibliography: bib.bib    
+    template: lys.tex
+    theme: lys
+    toc: yes
+  ioslides_presentation: default
+institute: Institution or Company of High Esteem
+subtitle: A simple Beamer and Rmarkdown template
+supervisor: (supervisor/co-author/etc.)
+symbols: \twitter{https://twitter.com/MarkusGFreitag}{}\git{}{}
+bibliography: bib.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -74,7 +75,7 @@ theme_set(theme_classic() +
 
 # First Section 
 
-### An ode to IBM Plex
+### An Ode to IBM Plex
 
 IBM Plex is an open source typeface designed by Mike Abbink at IBM: https://www.ibm.com/plex/.
 
@@ -89,13 +90,21 @@ Until then, the \LaTeX-package "mathastext" used in this template works fine, e.
 $$y_i \sim N(\mu,\sigma)$$
 
 
-### A first frame
+### A First Frame
 
 The first frame starts with some random items[^1]:
 
 - this is the first item
 - this is the second item
 - \hl{the third item is highlighted}
+
+Followed by an enumeration:
+
+1. first
+2. second
+3. third
+
+
 
 [^1]: Here is the footnote.
 
@@ -111,12 +120,12 @@ Tables should rarely be used in presentations:
 
 Table: Your Caption
 
-### A figure
+### A Figure
 
 
 ![Including a graphic.](fig\red.jpg)
 
-### A dag
+### A DAG
 
 ```{r dag, echo=FALSE, fig.cap = "A dag.", fig.width=2, fig.height=2}
 
@@ -138,7 +147,7 @@ ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
 ```
 
 
-### Some citations
+### Some Citations
 
 Let's quote [@Holland_1986].
 
@@ -146,7 +155,7 @@ Let's quote [@Holland_1986].
 
 
 
-### Code chunks
+### Code Chunks
 
 A code chunk:
 ```{r chunk, echo=TRUE}
@@ -158,7 +167,7 @@ g = ggplot(mtcars, aes(x=wt, y=mpg, color=cyl, size=cyl)) +
 ```
 
 
-### A plot
+### A Plot
 
 ```{r plot, echo=FALSE, fig.cap = "A scatter plot"}
 
