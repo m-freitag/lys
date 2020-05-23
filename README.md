@@ -9,5 +9,6 @@ Full math symbols will probably become available soon: https://github.com/IBM/pl
 
 Until then, the \LaTeX-package "mathastext" used in this template works fine.
 
+**If you don't like section pages, just comment out the respective lines in the beamerthemelys.sty file!**
 
 This is still work in progress. Will add comments.
