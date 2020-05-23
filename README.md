@@ -1,7 +1,7 @@
 # Lys - A simple rmarkdown/beamer template 
 
 
-A simple rmd/beamer template intended to save me some time in the future. Feel free to use and adapt to your needs!
+As the default theme is not very aestatically pleasing, and as I like beamer presentations the most among the available options, I created simple rmd/beamer template intended to save me some time in the future. Feel free to use and adapt to your needs!
 
 Lys uses IMB's awesome new open source typeface "Plex" which is imho even better than Firefox's Fira font for presentations. 
 
