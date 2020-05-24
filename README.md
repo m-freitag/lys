@@ -15,7 +15,7 @@ To install just enter:
 
 ```ruby
 if (!requireNamespace("devtools")) install.packages("devtools")
-devtools::install_github("username/packagename")
+devtools::install_github("m-freitag/lys")
 ```
 
 This is still work in progress. Will add comments.
