@@ -1,1 +1,1 @@
-use_rmarkdown_template()
+NULL
