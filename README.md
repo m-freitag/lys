@@ -11,4 +11,9 @@ Until then, the \LaTeX-package "mathastext" used in this template works fine.
 
 **If you don't like section pages, just comment out the respective lines in the beamerthemelys.sty file!**
 
+To install just enter:
+
+if (!requireNamespace("devtools")) install.packages("devtools")
+devtools::install_github("username/packagename")
+
 This is still work in progress. Will add comments.
