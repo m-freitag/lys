@@ -18,4 +18,4 @@ if (!requireNamespace("devtools")) install.packages("devtools")
 devtools::install_github("m-freitag/lys")
 ```
 
-This is still work in progress. Will add comments.
+This is still work in progress. Will add stuff from time to time.
