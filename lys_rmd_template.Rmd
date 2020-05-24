@@ -101,6 +101,23 @@ Followed by an enumeration:
 2. second
 3. third
 
+### Blocks
+
+:::{.block}
+### This is a normal block
+Although one could write "\begin{block}" etc. within the rmd file,
+it is better to use ":::{.block}" as this allows the use markdown within the block.
+:::
+
+\begin{alertblock}{A highlighted block}
+Sadly, this does not work for alertblocks or exampleblocks. Thus, you have to use the \LaTeX-commands.
+\end{alertblock}
+
+\begin{exampleblock}{This is an example block}
+        $$\tilde f(\omega)=\frac{1}{2\pi}
+        \int_{-\infty}^\infty f(x)e^{-i\omega x}\,dx$$
+\end{exampleblock}
+
 
 
 [^1]: Here is the footnote.

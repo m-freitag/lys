@@ -151,7 +151,7 @@
 \definecolor{ctitle}{RGB}{246, 244, 242} 
 \definecolor{ctext}{RGB}{66, 86, 100} 
 \definecolor{ccomplement}{RGB}{99,80,66}
-
+\definecolor{cgreen}{RGB}{86,100,66}
 
 
 		%----- Highlighting ----
@@ -161,6 +161,7 @@
 		%-----------------------
 
 
+		%----- Titleplage ----
 \setbeamercolor{frametitle}{fg=ctitle}
 \setbeamercolor{title}{fg=ctitle, bg=ctext}
 \setbeamercolor{subtitle}{fg=ctitle, bg=ctext}
@@ -169,6 +170,9 @@
 \setbeamercolor{institute}{fg=ctext}
 \setbeamercolor{supervisor}{fg=ctext}
 \setbeamercolor{symbols}{fg=ctext}
+ 		%-----------------------
+
+ 		%----- Frame Stuff ----
 \setbeamercolor{section title}{fg=ctext}
 \setbeamercolor{subsection title}{fg=ctext}
 \setbeamercolor{normal text}{fg=ctext}
@@ -178,6 +182,18 @@
 \setbeamercolor{itemize item}{fg=ctext}
 \setbeamercolor{enumerate item}{fg=ctext}
 \setbeamercolor{caption name}{fg=chighl}
+
+		%----- Blocks ----------
+\setbeamercolor{block body alerted}{bg=shadecolor, fg=ctext}
+\setbeamercolor{block title alerted}{bg=chighl, fg=ctitle}
+\setbeamercolor{block body}{bg=shadecolor, fg=ctext}
+\setbeamercolor{block title}{bg=ctext, fg=ctitle}
+\setbeamercolor{block body example}{bg=shadecolor, fg=ctext}
+\setbeamercolor{block title example}{bg=cgreen, fg=ctitle}
+		
+		%-----------------------
+
+
 %-------------------------------------------------
 
 
