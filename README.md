@@ -14,7 +14,6 @@ Until then, the \LaTeX-package "mathastext" used in this template works fine.
 To install just enter:
 
 ```ruby
-if (!requireNamespace("devtools")) install.packages("devtools")
 devtools::install_github("m-freitag/lys")
 ```
 
