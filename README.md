@@ -11,4 +11,10 @@ Until then, the \LaTeX-package "mathastext" used in this template works fine.
 
 **If you don't like section pages, just comment out the respective lines in the beamerthemelys.sty file!**
 
-This is still work in progress. Will add comments.
+To install just enter:
+
+```ruby
+devtools::install_github("m-freitag/lys")
+```
+
+This is still work in progress. Will add stuff from time to time.
