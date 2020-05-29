@@ -173,11 +173,18 @@ Let's quote [@Holland_1986].
 A code chunk:
 ```{r chunk, echo=TRUE}
 
+# A comment
+
 g = ggplot(mtcars, aes(x=wt, y=mpg, color=cyl, size=cyl)) +
       geom_point() +
       theme(legend.position="none") 
 
 ```
+
+\begin{alertblock}{A highlighted block}
+A highlighted block.
+\end{alertblock}
+
 
 
 ### A Plot
